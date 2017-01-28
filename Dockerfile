@@ -1,10 +1,14 @@
 FROM node:latest
 
-ADD . /home/angular-app
+ENV HOME=/home/app/angular-app
 
-WORKDIR /home/angular-app
+RUN useradd --user-group --create-home --shell /bin/false app 
 
-RUN npm i 
-&& npm run webdriver:update
+COPY . $HOME
+RUN chown -R app:app $HOME/*
+
+WORKDIR $HOME
+
+RUN npm install
 
 CMD ["npm","start"]
