@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'my-app',
@@ -10,6 +12,14 @@ export class AppComponent  {
   name = "Horacio";
   title = "Customer App";
   wardsColor = 'blue';
+  customers = [
+    {id: 1, name:'Horacio'},
+    {id: 2, name:'Daniela'},
+    {id: 3, name:'Ward'},
+    {id: 4, name:'Link'},
+    {id: 5, name:'Tommas'}
+  ];
+
 
   changeColors(){
     this.wardsColor = this.wardsColor === 'blue' ? 'red' : 'blue';
