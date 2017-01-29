@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let c of customers">
+        <app-customer [customer]="c"></app-customer>
+    </li>
+</ul>
+<input type="text" [(ngModel)]="custName">
+<button (click)="addCustName()">add name</button>
