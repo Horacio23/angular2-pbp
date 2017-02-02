@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from './customer.service';
 import { Observable } from 'rxjs/Rx';
+import { CustomerService } from './customer.service';
 
 @Component({
     moduleId: module.id,
     selector: 'app-customers',
     templateUrl: 'customers.component.html',
-    providers: [CustomerService]
 })
 export class CustomersComponent implements OnInit {
     // customers: Promise<any[]>;
@@ -17,6 +16,7 @@ export class CustomersComponent implements OnInit {
     constructor(private _customerService: CustomerService) { }
 
     ngOnInit() { 
+        // Rx Observable version with subscribe function to a customer array
         this._customerService.getCustomers_RxObservable()
         .subscribe(
             // it worked
@@ -45,7 +45,7 @@ export class CustomersComponent implements OnInit {
 
         //Rx Observable
         // Observable<any[]>
-        // this.customers = this._customerService.getCustomers()
+        // this.customers = this._customerService.getCustomers_RxObservable()
         // .catch((err:any) => {
         //     console.log("There was an error getting the json: " + err._body);
         //     return Observable.of([]);
